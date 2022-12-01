@@ -7,5 +7,27 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO employee (emp_id, password, emp_name, emp_role)
-VALUES("1","abc","Roland","Director");
+
+CREATE TABLE `emission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `energy_source` varchar(255) DEFAULT NULL,
+  `month` int DEFAULT NULL,
+  `year` int DEFAULT NULL,
+  `amount` decimal(9,2) DEFAULT NULL,
+  `carbon_emission` decimal(9,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE `emission_source` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `scope` int DEFAULT NULL,
+  `emission_source` varchar(255) DEFAULT NULL,
+  `conversion_rate` decimal(6,4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `emission_source` (`scope`,`emission_source`,`conversion_rate`) 
+VALUES 
+  (1, 'gas', 91),
+  (2, 'electricity', 0.0005);

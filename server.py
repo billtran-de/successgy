@@ -3,7 +3,7 @@ from flask_cors import CORS
 from flask_restful import Api
 
 from handler.user import UserHandler
-from handler.energy_source import EnergySourceHandler
+from handler.emission import EmissionHandler
 
 # initialize Flask API
 app = Flask(__name__)
@@ -12,7 +12,7 @@ api = Api(app)
 
 # add route
 api.add_resource(UserHandler, '/api/user')
-api.add_resource(EnergySourceHandler, '/api/energy_source')
+api.add_resource(EmissionHandler, '/api/emission')
 
 if __name__ == '__main__':
     app.run(debug=True)

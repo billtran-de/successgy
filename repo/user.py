@@ -16,8 +16,8 @@ class UserModel:
             with connection.cursor() as cursor:
                 cursor.execute(
                     ''' SELECT * FROM successgy.employee''')
-                list_match = cursor.fetchall()
-        return list_match
+                all_users = cursor.fetchall()
+        return all_users
 
     # add new user to the database when register
     @classmethod
