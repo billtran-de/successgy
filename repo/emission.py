@@ -9,7 +9,7 @@ class EmissionModel:
     __table_name__ = "emission"
     __table_name__additional__ = "emission_source"
 
-    # get all existing users in the database when login
+    # get conversion rate based on source requested
     @classmethod
     def get_rate_by_source(cls, source):
         connection = connect_db()

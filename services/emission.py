@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from repo.emission import EmissionModel
 from utils.db import log
 
