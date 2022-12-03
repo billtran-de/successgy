@@ -9,6 +9,18 @@ class EmissionServices:
       This layer handles all logical interaction between handler layer and repo layer
     '''
 
+    # get data for each emission source table in the UI
+    @classmethod
+    def get_emission_table(cls, source):
+      if source:
+        emission_data = EmissionModel.get_data_by_source(source)
+      else:
+        emission_data = EmissionModel.get_all_data()
+      for row in emission_data:
+        row['amount'] = float(row['amount'])
+        row['carbon_emission'] = float(row['carbon_emission'])
+      return emission_data
+
     # add new emision to the database 
     @classmethod
     def add_emission_record(cls, emission_data):
